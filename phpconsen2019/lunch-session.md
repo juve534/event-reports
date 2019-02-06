@@ -1,5 +1,5 @@
 # PHPカンファレンス仙台参加レポート
-## [オミカレを支えるチーム開発 ~プロダクトを支える文化~/phpconference-sendai2019-omicale](https://speakerdeck.com/takahashiikki/phpconference-sendai2019-omicale)
+## [オミカレを支えるチーム開発 \~プロダクトを支える文化\~/phpconference-sendai2019-omicale](https://speakerdeck.com/takahashiikki/phpconference-sendai2019-omicale)
 
 ### TL;DR
 * 東京と岡山の2拠点に分かれているので、Slackでの情報共有を強化する
