@@ -25,7 +25,7 @@
 自動復旧に向かう前に、人間が介入するフェーズがあるのが良いですね。
 補助輪を外すフェーズは、人間相手でも機械相手でも必要。
 
-### 入門 監視のなにか（仮）
+### [「監視の目的とは何か？」を問いかけよう](https://speakerdeck.com/doublemarket/practical-monitoring)
 #### TL;DR
 
 * 監視の目的はなにか考える
@@ -46,7 +46,6 @@
 
 自分的には、モニタリングが属人化してしまっているので、なんとか改善せねばと思いました。
 
-#### TL;DR
 ### [sysloadや監視などの話（仮）](https://www.slideshare.net/takanorisejima/sysload-133365308)
 #### TL;DR
 * エモすぎる話
