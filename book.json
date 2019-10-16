@@ -1,9 +1,0 @@
-{
-  "title": "イベント参加レポート",
-  "outputfile": "README.md",
-  "catalog": "all",
-  "ignores": ["_book"],
-  "unchanged": [],
-  "sortedBy": "num.",
-  "disableTitleFormatting": false
-}

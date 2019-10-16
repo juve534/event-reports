@@ -1,0 +1,374 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>PHPではじめるCQRS · イベント参加レポート</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="elasticsearch.html" />
+    
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    PHPカンファレンス仙台2019
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.2.1" data-path="cqrs.html">
+            
+                <a href="cqrs.html">
+            
+                    
+                    PHPではじめるCQRS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="elasticsearch.html">
+            
+                <a href="elasticsearch.html">
+            
+                    
+                    開発期間2ヶ月でElasticsearchをプロダクトに使ってリリースした話
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="Hack-application-architecture.html">
+            
+                <a href="Hack-application-architecture.html">
+            
+                    
+                    Hackで作る堅実な アプリケーションアーキテクチャ
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="lunch-session.html">
+            
+                <a href="lunch-session.html">
+            
+                    
+                    オミカレを支えるチーム開発 ~プロダクトを支える文化~
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="php-middleware.html">
+            
+                <a href="php-middleware.html">
+            
+                    
+                    PHPのmiddlewareを 使いこなすために
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="relapse_prevention.html">
+            
+                <a href="relapse_prevention.html">
+            
+                    
+                    再発防止策を考える技術
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="test_driven.html">
+            
+                <a href="test_driven.html">
+            
+                    
+                    テストが辛いを解決するテスト駆動開発のアプローチ at PHPカンファレンス仙台2019
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../gree_monitoring/">
+            
+                <a href="../gree_monitoring/">
+            
+                    
+                    グリー開発本部 Meetup #3 モニタリング
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >PHPではじめるCQRS</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="php&#x30AB;&#x30F3;&#x30D5;&#x30A1;&#x30EC;&#x30F3;&#x30B9;&#x4ED9;&#x53F0;&#x53C2;&#x52A0;&#x30EC;&#x30DD;&#x30FC;&#x30C8;">PHP&#x30AB;&#x30F3;&#x30D5;&#x30A1;&#x30EC;&#x30F3;&#x30B9;&#x4ED9;&#x53F0;&#x53C2;&#x52A0;&#x30EC;&#x30DD;&#x30FC;&#x30C8;</h1>
+<h2 id="php&#x3067;&#x306F;&#x3058;&#x3081;&#x308B;cqrs"><a href="https://speakerdeck.com/dnskimo/phpdehazimerucqrs" target="_blank">PHP&#x3067;&#x306F;&#x3058;&#x3081;&#x308B;CQRS</a></h2>
+<h3 id="tldr">TL;DR</h3>
+<ul>
+<li><code>CQRS</code>&#x306E;&#x524D;&#x306B;<code>CQS</code>&#x3092;&#x77E5;&#x308B;<ul>
+<li><code>&#x30B3;&#x30DE;&#x30F3;&#x30C9;(&#x547D;&#x4EE4;)</code>&#x3068;<code>&#x30AF;&#x30A8;&#x30EA;(&#x554F;&#x3044;&#x5408;&#x308F;&#x305B;)</code>&#x3092;&#x5206;&#x3051;&#x308B;&#x30AF;&#x30E9;&#x30B9;&#x8A2D;&#x8A08;</li>
+<li>&#x8AAD;&#x307F;&#x66F8;&#x304D;&#x3092;&#x540C;&#x3058;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3067;&#x3084;&#x3089;&#x306A;&#x3044;&#x3053;&#x3068;&#x3067;&#x3001;&#x4FE1;&#x983C;&#x6027;&#x3084;&#x518D;&#x5229;&#x7528;&#x6027;&#x3092;&#x5411;&#x4E0A;&#x3055;&#x305B;&#x308B;</li>
+</ul>
+</li>
+<li><code>CQRS</code>&#x306F;&#x30A2;&#x30FC;&#x30AD;&#x30C6;&#x30AF;&#x30C1;&#x30E3;&#x8A2D;&#x8A08;<ul>
+<li>&#x30A2;&#x30FC;&#x30AD;&#x30C6;&#x30AF;&#x30C1;&#x30E3;&#x3082;<code>&#x30B3;&#x30DE;&#x30F3;&#x30C9;(&#x547D;&#x4EE4;)</code>&#x3068;<code>&#x30AF;&#x30A8;&#x30EA;(&#x554F;&#x3044;&#x5408;&#x308F;&#x305B;)</code>&#x3067;&#x5206;&#x96E2;&#x3059;&#x308B;</li>
+<li><code>&#x30AF;&#x30A8;&#x30EA;</code>&#x306F;<code>Elasticsearch</code>&#x3068;&#x3044;&#x3063;&#x305F;<code>NoSQL</code>&#x304C;&#x4F7F;&#x308F;&#x308C;&#x308B;&#x3053;&#x3068;&#x304C;&#x591A;&#x3044;&#x304C;&#x3001;<code>RDB</code>&#x3067;&#x3082;&#x884C;&#x3051;&#x308B;<ul>
+<li>ORM&#x3092;&#x4F7F;&#x308F;&#x305A;&#x3001;&#x30AF;&#x30A8;&#x30EA;&#x3092;&#x7D44;&#x307F;&#x7ACB;&#x3066;&#x308B;&#x3053;&#x3068;&#x3067;&#x3001;<code>SQL</code>&#x306E;&#x771F;&#x4FA1;&#x3092;&#x767A;&#x63EE;&#x3055;&#x305B;&#x308B;</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="&#x306A;&#x305C;&#x3053;&#x306E;&#x30BB;&#x30C3;&#x30B7;&#x30E7;&#x30F3;&#x3092;&#x805E;&#x3044;&#x305F;&#x306E;&#x304B;">&#x306A;&#x305C;&#x3053;&#x306E;&#x30BB;&#x30C3;&#x30B7;&#x30E7;&#x30F3;&#x3092;&#x805E;&#x3044;&#x305F;&#x306E;&#x304B;</h3>
+<p>&#x6700;&#x8FD1;CQRS&#x3068;&#x3044;&#x3046;&#x8A00;&#x8449;&#x3092;&#x3088;&#x304F;&#x805E;&#x304F;&#x3088;&#x3046;&#x306B;&#x306A;&#x308A;&#x307E;&#x3057;&#x305F;&#x3002;<br>CQRS&#x304C;&#x3069;&#x3046;&#x3044;&#x3046;&#x3082;&#x306E;&#x304B;&#x8208;&#x5473;&#x3092;&#x6301;&#x3063;&#x3066;&#x304A;&#x308A;&#x307E;&#x3057;&#x305F;&#x304C;&#x3001;&#x4E00;&#x65B9;&#x3067;CQRS&#x3068;&#x30BB;&#x30C3;&#x30C8;&#x3067;&#x3001;&#x30A4;&#x30D9;&#x30F3;&#x30C8;&#x30BD;&#x30FC;&#x30B7;&#x30F3;&#x30B0;&#xFF08;RabbitMQ&#x3084;Apache Kafka&#x306A;&#x3069;&#x3092;&#x5229;&#x7528;&#xFF09;&#x304C;&#x8A9E;&#x3089;&#x308C;&#x3066;&#x304A;&#x308A;&#x3001;&#x5B9F;&#x88C5;&#x3059;&#x308B;&#x4E0A;&#x3067;&#x30CF;&#x30FC;&#x30C9;&#x30EB;&#x304C;&#x9AD8;&#x3044;&#x306A;&#x3068;&#x611F;&#x3058;&#x3066;&#x304A;&#x308A;&#x307E;&#x3057;&#x305F;&#x3002;  </p>
+<p>&#x4ECA;&#x56DE;&#x306E;&#x767A;&#x8868;&#x8005;&#x306F;PHP&#x3067;&#x5B9F;&#x88C5;&#x3059;&#x308B;&#x3068;&#x3044;&#x3046;&#x3053;&#x3068;&#x3067;&#x3001;&#x3069;&#x3046;&#x3044;&#x3063;&#x305F;&#x8A2D;&#x8A08;&#x3068;&#x5B9F;&#x88C5;&#x3092;&#x884C;&#x3063;&#x3066;&#x3044;&#x308B;&#x304B;&#x6C17;&#x306B;&#x306A;&#x308A;&#x3001;&#x8074;&#x304D;&#x306B;&#x884C;&#x304D;&#x307E;&#x3057;&#x305F;&#x3002;</p>
+<h3 id="&#x5185;&#x5BB9;">&#x5185;&#x5BB9;</h3>
+<p>PHP&#x3067;&#x30A4;&#x30D9;&#x30F3;&#x30C8;&#x30BD;&#x30FC;&#x30B7;&#x30F3;&#x30B0;&#x3092;&#x3084;&#x308B;&#x8A71;&#x3060;&#x3068;&#x601D;&#x3063;&#x3066;&#x3044;&#x307E;&#x3057;&#x305F;&#x304C;&#x3001;SQL&#x3092;&#x99C6;&#x4F7F;&#x3059;&#x308B;&#x3068;&#x3044;&#x3046;&#x8A71;&#x3067;&#x3057;&#x305F;&#x3002;<br>&#x82E5;&#x5E72;&#x306E;&#x80A9;&#x900F;&#x304B;&#x3057;&#x611F;&#x306F;&#x3042;&#x308A;&#x307E;&#x3057;&#x305F;&#x304C;&#x3001;&#x5185;&#x5BB9;&#x306F;&#x7D0D;&#x5F97;&#x304C;&#x3067;&#x304D;&#x308B;&#x3082;&#x306E;&#x3067;&#x3057;&#x305F;&#x3002;  </p>
+<p>Laravel&#x3084;CakePHP&#x3068;&#x3044;&#x3063;&#x305F;FW&#x3092;&#x4F7F;&#x3063;&#x305F;&#x4E8B;&#x304C;&#x3042;&#x308B;&#x4EBA;&#x306A;&#x3089;&#x3001;ORM&#x306E;&#x4FBF;&#x5229;&#x3055;&#x3068;&#x30C7;&#x30FC;&#x30BF;&#x91CF;&#x304C;&#x5897;&#x3048;&#x305F;&#x969B;&#x306E;&#x53B3;&#x3057;&#x3055;&#x3082;&#x308F;&#x304B;&#x308B;&#x304B;&#x306A;&#x3068;&#x601D;&#x3044;&#x307E;&#x3059;&#x3002;<br>&#x4ECA;&#x56DE;&#x306E;&#x30BB;&#x30C3;&#x30B7;&#x30E7;&#x30F3;&#x3067;&#x3042;&#x3063;&#x305F;&#x3088;&#x3046;&#x306B;&#x3001;&#x691C;&#x7D22;&#x3092;&#x30D5;&#x30EB;&#x306B;&#x884C;&#x3044;&#x305F;&#x3044;&#x5834;&#x5408;&#x306F;&#x3001;SQL&#x3092;&#x81EA;&#x5206;&#x3067;&#x7D44;&#x3093;&#x3067;&#x3084;&#x308B;&#x306E;&#x304C;&#x826F;&#x3044;&#x3067;&#x3059;&#x306D;&#x3002;</p>
+<p>&#x307E;&#x305F;Value Object&#x306A;&#x308B;&#x3082;&#x306E;&#x3067;&#x3001;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3068;&#x30AF;&#x30A8;&#x30EA;&#x3067;&#x30ED;&#x30B8;&#x30C3;&#x30AF;&#x306E;&#x5171;&#x6709;&#x3092;&#x884C;&#x3046;&#x306E;&#x3082;&#x826F;&#x3044;&#x5DE5;&#x592B;&#x3067;&#x3059;&#x306D;&#x3002;</p>
+<p>&#x3061;&#x306A;&#x307F;&#x306B;&#x3001;SQL&#x3092;&#x751F;SQL&#x3067;&#x306F;&#x306A;&#x304F;&#x30AF;&#x30A8;&#x30EA;&#x30D3;&#x30EB;&#x30C0;&#x3067;&#x7D44;&#x3093;&#x3060;&#x306E;&#x306F;&#x3001;SQL&#x30A4;&#x30F3;&#x30B8;&#x30A7;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x5BFE;&#x7B56;&#x3089;&#x3057;&#x3044;&#x3067;&#x3059;&#x3002;</p>
+<h3 id="&#x307E;&#x3068;&#x3081;">&#x307E;&#x3068;&#x3081;</h3>
+<p>&#x96E3;&#x3057;&#x3044;&#x5358;&#x8A9E;&#x306F;&#x51FA;&#x3066;&#x3044;&#x307E;&#x3059;&#x304C;&#x3001;&#x4E01;&#x5BE7;&#x306B;&#x89E3;&#x8AAC;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x306E;&#x3067;&#x3001;<code>CQRS</code>&#x3092;&#x77E5;&#x308A;&#x305F;&#x3044;&#x4EBA;&#x306B;&#x826F;&#x3044;&#x5185;&#x5BB9;&#x3060;&#x3068;&#x601D;&#x3044;&#x307E;&#x3059;&#x3002;<br>&#x81EA;&#x5206;&#x306F;&#x3001;&#x8FD1;&#x3005;&#x3067;&#x30C7;&#x30FC;&#x30BF;&#x96C6;&#x8A08;&#x3092;&#x884C;&#x3046;&#x30BF;&#x30B9;&#x30AF;&#x304C;&#x3042;&#x3063;&#x305F;&#x306E;&#x3067;&#x3001;&#x305D;&#x306E;&#x969B;&#x306F;ORM&#x3067;&#x306F;&#x306A;&#x304F;&#x3001;SQL&#x3092;&#x7D44;&#x307F;&#x7ACB;&#x3066;&#x3066;&#x3084;&#x308D;&#x3046;&#x3068;&#x601D;&#x3044;&#x307E;&#x3059;&#x3002;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                
+                <a href="elasticsearch.html" class="navigation navigation-next navigation-unique" aria-label="Next page: 開発期間2ヶ月でElasticsearchをプロダクトに使ってリリースした話">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"PHPではじめるCQRS","level":"1.2.1","depth":2,"next":{"title":"開発期間2ヶ月でElasticsearchをプロダクトに使ってリリースした話","level":"1.2.2","depth":2,"path":"phpconsen2019/elasticsearch.md","ref":"./phpconsen2019/elasticsearch.md","articles":[]},"previous":{"title":"PHPカンファレンス仙台2019","level":"1.2","depth":1,"ref":"","articles":[{"title":"PHPではじめるCQRS","level":"1.2.1","depth":2,"path":"phpconsen2019/cqrs.md","ref":"./phpconsen2019/cqrs.md","articles":[]},{"title":"開発期間2ヶ月でElasticsearchをプロダクトに使ってリリースした話","level":"1.2.2","depth":2,"path":"phpconsen2019/elasticsearch.md","ref":"./phpconsen2019/elasticsearch.md","articles":[]},{"title":"Hackで作る堅実な アプリケーションアーキテクチャ","level":"1.2.3","depth":2,"path":"phpconsen2019/Hack-application-architecture.md","ref":"./phpconsen2019/Hack-application-architecture.md","articles":[]},{"title":"オミカレを支えるチーム開発 ~プロダクトを支える文化~","level":"1.2.4","depth":2,"path":"phpconsen2019/lunch-session.md","ref":"./phpconsen2019/lunch-session.md","articles":[]},{"title":"PHPのmiddlewareを 使いこなすために","level":"1.2.5","depth":2,"path":"phpconsen2019/php-middleware.md","ref":"./phpconsen2019/php-middleware.md","articles":[]},{"title":"再発防止策を考える技術","level":"1.2.6","depth":2,"path":"phpconsen2019/relapse_prevention.md","ref":"./phpconsen2019/relapse_prevention.md","articles":[]},{"title":"テストが辛いを解決するテスト駆動開発のアプローチ at PHPカンファレンス仙台2019","level":"1.2.7","depth":2,"path":"phpconsen2019/test_driven.md","ref":"./phpconsen2019/test_driven.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":[],"ignores":["_book"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"sortedBy":"num.","disableTitleFormatting":false,"variables":{},"title":"イベント参加レポート","catalog":"all","gitbook":"*","unchanged":[],"outputfile":"README.md"},"file":{"path":"phpconsen2019/cqrs.md","mtime":"2019-10-16T16:16:53.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-16T16:26:49.011Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
